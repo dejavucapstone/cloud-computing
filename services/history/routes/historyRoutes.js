@@ -1,8 +1,12 @@
 import { Router } from 'express';
-import { getHistory, addHistory } from '../controllers/historyController.js';
+import { createHistory, getHistory, getHistoryById, updateHistory, deleteHistory } from '../controllers/historyController.js';
+
 const router = Router();
 
-router.get('/:id_user', getHistory); 
-router.post('/', addHistory); 
+router.post('/', createHistory);
+router.get('/', getHistory);
+router.get('/:id', getHistoryById); 
+router.put('/:id', updateHistory);
+router.delete('/:id', deleteHistory);
 
 export default router;

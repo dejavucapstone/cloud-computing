@@ -1,92 +1,183 @@
-import jwt from "jsonwebtoken"
-import { compare, hash } from 'bcrypt';
-import { createTransport } from 'nodemailer';
-import db from "../../../config/supabase.js";
+import jwt from 'jsonwebtoken';
+import { emailSender } from '../../../utils/emailSender.js';
+import { createResponse } from '../../../utils/createResponse.js'
+import db from '../../../config/supabase.js';
+import { hashingPassword } from '../../../utils/hashPassword.js';
+import { verifyPassword }  from '../../../utils/hashPassword.js';
 
-const { sign } = jwt;
+const verificationCodes = {}; 
 
 export async function login(req, res) {
     const { email, password } = req.body;
 
     try {
-        const { data, error } = await db
-            .from('login') // Correctly using the db client
+        const { data: user, error } = await db
+            .from('login')
             .select('*')
-            .eq('email', email);
+            .eq('email', email)
+            .single();
 
-        if (error || data.length === 0) {
-            return res.status(404).send('User not found.');
+        if (error || !user) {
+            return createResponse(res, 401, false, 'The credentials you provided are incorrect.');
         }
 
-        const user = data[0];
-        const isValidPassword = await compare(password, user.password);
-        if (!isValidPassword) {
-            return res.status(401).send('Invalid credentials.');
+        const { password: storedHash } = user;
+
+        const isPasswordValid = verifyPassword(password, storedHash);
+        if (!isPasswordValid) {
+            return createResponse(res, 401, false, 'Invalid email or password.');
         }
 
-        const token = sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({ message: 'Login successful', token });
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+        );
+
+        return createResponse(res, 200, true, 'Login successful', { token });
     } catch (err) {
-        console.error(err); // Log error for debugging
-        res.status(500).send('Server error.');
+        console.error('Error during login:', err.message);
+        return createResponse(res, 500, false, 'Unexpected server error', { error: err.message });
+    }
+}
+
+export async function register(req, res) {
+    const { name, phone_number, password, email, gender, berat_badan, tinggi_badan } = req.body;
+
+    try {
+        if (!email || !phone_number || !password || !name || !gender || !berat_badan || !tinggi_badan) {
+            return res.status(400).json({ message: 'All fields are required.' });
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return createResponse(res, 400, false, 'Invalid email format.');
+        }
+        
+        if (gender !== 'L' && gender !== 'P') {
+            return res.status(400).json({ message: 'Gender must be "L" or "P".' });
+        }
+
+        const { data: existingLoginUser } = await db
+            .from('login')
+            .select('*')
+            .eq('email', email)
+            .single();
+
+        if (existingLoginUser) {
+            return createResponse(res, 400, false, 'Username is already taken.');
+        }
+
+        const { data: existingUser } = await db
+            .from('user')
+            .select('*')
+            .eq('name', name)
+            .single();
+
+        if (existingUser) {
+            return createResponse(res, 400, false, 'Email is already registered.');
+        }
+
+        const { hash } = hashingPassword(password);
+
+        const { data: userData, error: userError } = await db
+            .from('user')
+            .insert([{email: email, gender: gender, berat_badan: berat_badan, tinggi_badan: tinggi_badan, name: name, phone_number: phone_number }])
+            .select();
+
+        if (userError) {
+            throw userError;
+        }
+        
+        const { data: loginData, error: loginError } = await db
+            .from('login')
+            .insert([{ email: email, password: hash }])
+            .select();
+        
+        if (loginError) {
+            await db.from('user').delete().eq('id_data', userData[0].id_data);
+            throw loginError;
+        }
+
+        return createResponse(res, 200, true, 'Register successful', {loginData, userData});
+
+    } catch (err) {
+        console.error(err);
+        return createResponse(res, 500, false, 'Unexpected server error', { error: err.message });
     }
 }
 
 export async function forgotPassword(req, res) {
     const { email } = req.body;
-    const code = Math.floor(1000 + Math.random() * 9000);
 
     try {
-        const { data, error } = await db
-            .from('login') // Ensure case matches table name in db
+        const { data: user, error: userError } = await db
+            .from('user')
             .select('*')
-            .eq('email', email);
+            .eq('email', email)
+            .single();
 
-        if (error || data.length === 0) {
-            return res.status(404).send('User not found.');
+        if (userError || !user) {
+            return createResponse(res, 404, false, 'User not found');
+        }
+        const verificationCode = Math.floor(1000 + Math.random() * 9000);
+        verificationCodes[email] = verificationCode;
+        const expiresAt = new Date(Date.now() + 10   * 60 * 1000).toISOString(); // 5 menit
+
+        const { error: updateError } = await db
+            .from('login')
+            .update({ reset_code: verificationCode, reset_code_expired: expiresAt })
+            .eq('email', email)
+            
+        if (updateError) {
+            console.error('Error during forgot password:', err.message);
+            return createResponse(res, 500, false, 'Unexpected server error', { error: err.message });
         }
 
-        const transporter = createTransport({
-            host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT, 10), // Convert port to integer
-            secure: false, // Secure can depend on port used
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-        });
-
-        await transporter.sendMail({
-            from: `"Support" <${process.env.SMTP_USER}>`,
-            to: email,
-            subject: 'Password Reset Code',
-            text: `Your password reset code is ${code}`,
-        });
-
-        res.status(200).json({ message: 'Reset code sent.', code });
+        await emailSender(email, 'Password Reset Verification Code', `Your verification code is: ${verificationCode}\nYour verification code will expire in 10 minutes.`);
+        return createResponse(res, 200, true, 'Verification code sent to your email');
     } catch (err) {
-        console.error(err); // Log error for debugging
-        res.status(500).send('Server error.');
+        console.error('Error during forgot password:', err.message);
+        return createResponse(res, 500, false, 'Unexpected server error', { error: err.message });
     }
 }
 
 export async function resetPassword(req, res) {
-    const { email, code, newPassword } = req.body;
+    const { email, resetCode, newPassword } = req.body;
 
     try {
-        const hashedPassword = await hash(newPassword, 10);
         const { data, error } = await db
-            .from('login') // Ensure case matches table name in db
-            .update({ password: hashedPassword })
-            .eq('email', email);
+            .from('login')
+            .select('reset_code, reset_code_expired')
+            .eq('email', email)
+            .single();
 
-        if (error) {
-            return res.status(500).send('Error updating password.');
+        if (error || !data) {
+            return createResponse(res, 404, false, 'Email not found or invalid');
         }
 
-        res.status(200).send('Password updated successfully.');
+        const { reset_code, reset_code_expired } = data;
+
+        if (reset_code !== resetCode) {
+            return createResponse(res, 400, false, 'Invalid verification code');
+        }
+
+        if (new Date(reset_code_expired) < new Date()) {
+            return createResponse(res, 400, false, 'Verification code has expired');
+        }
+
+        const { hash: hashedPassword } = hashingPassword(newPassword);
+
+        const { error: updateError } = await db
+        .from('login')
+        .update({ password: hashedPassword, reset_code: null, reset_code_expired: null })
+        .eq('email', email);
+
+        if (updateError) {
+            return createResponse(res, 500, false, 'Failed to reset password', { error: updateError.message });
+        }
+        return createResponse(res, 200, true, 'Password reset successful');
     } catch (err) {
-        console.error(err); // Log error for debugging
-        res.status(500).send('Server error.');
+        console.error('Error during password reset:', err.message);
+        return createResponse(res, 500, false, 'Unexpected server error', { error: err.message });
     }
 }
