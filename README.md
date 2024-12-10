@@ -1,6 +1,6 @@
 <!-- ABOUT THE PROJECT -->
 
-<h2 align="center">Cloud Computing</h2>
+<h4 align="center">Cloud Computing (API Documentation)</h4>
 
 This repository contains resources for a Cloud Computing project focused on implementing Node.js with the Express.js framework for backend development 
 and mobile app integration. It includes documentation on database management using Supabase, an open-source backend-as-a-service platform that serves as a 
