@@ -36,16 +36,16 @@ This section lists the major frameworks/libraries used to bootstrap your project
 <h2 align="center">Repository Structure</h2>
 
   ```sh
-  npm install npm@latest -g
+  project structure coming soon
   ```
 
-### Installation
+### Preparation and Running Code
 
 To get started, clone this repository and install the necessary dependencies:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/dejavucapstone/cloud-computing.git
    ```
 2. Change Directory
    ```sh
@@ -61,20 +61,6 @@ To get started, clone this repository and install the necessary dependencies:
    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -96,24 +82,6 @@ Don't forget to give the project a star! Thanks again!
 <a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
 </a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the Unlicense License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTACT -->
-
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
