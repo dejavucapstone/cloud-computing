@@ -21,11 +21,19 @@ Use the `BLANK_README.md` to get started.
 
 This project is built using several components:
 
-- [![Node.js][Node.js]][Node-url]
-- [![Express.js][Express.js]][Express-url]
-- [![Supabase][Supabase]][Supabase-url]
+- ![Node.js][Node.js]
+- ![Express.js][Express.js]
+- ![Supabase][Supabase]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[Node.js]: https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white
+[Node-url]: https://nodejs.org/
+[Express.js]: https://img.shields.io/badge/Express.js-404D59?style=flat-square
+[Express-url]: https://expressjs.com/
+[Supabase]: https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white
+[Supabase-url]: https://supabase.io/
+
 
 <!-- GETTING STARTED -->
 
