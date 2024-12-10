@@ -30,10 +30,8 @@ This project is built using several components:
 [Express.js]: https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=yellow
 [Express-url]: https://expressjs.com/
 [Supabase]: https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white
-[Supabase-url]: https://supabase.io/
+[Supabase-url]: https://supabase.com/
 
-
-<!-- GETTING STARTED -->
 
 ## Getting Started
 
