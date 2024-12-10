@@ -25,8 +25,7 @@ This project is built using several components:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[Node.js]: https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white
-[Node-url]: https://nodejs.org/
+[Node.js]: https://nodejs.org/
 [Express.js]: https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=yellow
 [Express-url]: https://expressjs.com/
 [Supabase]: https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white
