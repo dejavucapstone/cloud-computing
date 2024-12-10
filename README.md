@@ -1,6 +1,6 @@
 <!-- ABOUT THE PROJECT -->
 
-<h1 align="center">Cloud Computing (API Resources)</h1>
+<h1 align="center">Cloud Computing (API RESOURCES)</h1>
 
 This repository contains resources for a Cloud Computing project focused on implementing Node.js with the Express.js framework for backend development 
 and mobile app integration.
