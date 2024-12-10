@@ -15,8 +15,6 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
 This project is built using several components:
@@ -29,10 +27,11 @@ This project is built using several components:
 
 [Node.js]: https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white
 [Node-url]: https://nodejs.org/
-[Express.js]: https://img.shields.io/badge/Express.js-404D59?style=flat-square
+[Express.js]: https://img.shields.io/badge/Express.js-404D59?style=flat-square&logo=express&logoColor=white
 [Express-url]: https://expressjs.com/
 [Supabase]: https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white
 [Supabase-url]: https://supabase.io/
+
 
 
 <!-- GETTING STARTED -->
