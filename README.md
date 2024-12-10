@@ -33,8 +33,7 @@ This section lists the major frameworks/libraries used to bootstrap your project
 [Supabase-url]: https://supabase.com/
 
 
-
-## Getting Started
+<h2 align="center">Repository Structure</h2>
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
