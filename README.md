@@ -83,5 +83,33 @@ Don't forget to give the project a star! Thanks again!
   <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
 </a>
 
+machine-learning-model
+│
+├── dataset/
+│   ├── test/               # Test dataset
+│   ├── train/              # Training dataset
+│   ├── validation/         # Validation dataset
+│   └── README.md           # Dataset documentation
+│
+├── model/
+│   ├── gym_equip.classifier.tflite  # TensorFlow Lite model
+│   ├── model_ft_finetuned.h5       # Fine-tuned TensorFlow model
+│   └── model_metadata/
+│       ├── gym_equip_classifier.json        # Model metadata in JSON format
+│       └── gym_equip_classifier_metadata.tflite  # Metadata-enhanced TFLite model
+│
+├── notebooks/
+│   ├── saved_model/         # Saved model directory
+│   ├── evaluation.ipynb     # Model evaluation and testing (H5 and TFLite)
+│   ├── exploratory.ipynb    # Exploratory Data Analysis (EDA) and visualization
+│   └── modeling.ipynb       # Building, training, fine-tuning, saving, and converting TFLite model
+│
+├── scripts/
+│   ├── README.md            # Scripts documentation
+│   ├── labels.txt           # Labels for the classifier
+│   └── metadata_writer_for_image_classifier.py  # Script to write metadata
+│
+├── README.md                # Project documentation
+└── requirements.txt         # Required Python packages
 
 
