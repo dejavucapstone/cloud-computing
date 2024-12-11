@@ -15,7 +15,6 @@ Here's the project scope :
 - API development : Utilizing Node.js and Express.js frameworks to develop REST APIs that connect Android applications to databases.
 - Microservices Architecture: Implemented a microservices architecture for better scalability and maintainability, with each service handling specific functions.
 
-Use the `BLANK_README.md` to get started.
 
 ### Built With
 
