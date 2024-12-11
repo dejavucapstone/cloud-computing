@@ -36,7 +36,61 @@ There's several components that we use to build this repository :
 
 <h2 align="center">Repository Structure</h2>
 
+  ```sh
+cloud-computing
+│
+├── config/
+│   └── supabase.js                     # Supabase configuration
+│
+├── docs/
+│   ├── api-docs.yaml                   # API documentation
+│   └── cleaned-api-docs.yaml           # Cleaned API documentation
+│
+├── node_modules/                       # Node.js modules
+│
+├── services/
+│   ├── auth/                            # Authentication services
+│   │   ├── controllers/                 # Controllers for authentication
+│   │   │   └── authControllers.js       
+│   │   ├── middleware/                  # Middleware for authentication
+│   │   │   └── authMiddleware.js        
+│   │   └── routes/                      # Routes for authentication
+│   │       └── authRoutes.js            
+│   ├── docs/                            # Documentation services
+│   │   ├── controllers/                 # Controllers for documentation
+│   │   │   └── docsControllers.js       
+│   │   └── routes/                      # Routes for documentation
+│   │       └── docsRoutes.js            
+│   ├── exercise/                        # Exercise services
+│   │   ├── controllers/                 # Controllers for exercises
+│   │   │   └── exerciseControllers.js    
+│   │   └── routes/                      # Routes for exercises
+│   │       └── exerciseRoutes.js        
+│   ├── history/                         # History services
+│   │   ├── controllers/                 # Controllers for history
+│   │   │   └── historyControllers.js     
+│   │   └── routes/                      # Routes for history
+│   │       └── historyRoutes.js         
+│   ├── user/                            # User services
+│   │   ├── controllers/                 # Controllers for users
+│   │   │   └── userControllers.js       
+│   │   └── routes/                      # Routes for users
+│   │       └── userRoutes.js            
+│
+├── utils/
+│   ├── createResponse.js                # Utility for creating responses
+│   ├── emailSender.js                   # Utility for sending emails
+│   └── hashPassword.js                  # Utility for hashing passwords
+│
+├── README.md                            # Project documentation
+├── .env                                  # Environment variables
+├── Documentation API.json               # API documentation in JSON format
+├── index.js                             # Main entry point of the application
+├── package-lock.json                    # Lock file for npm packages
+├── package.json                         # Project metadata and dependencies
+└── pnpm-lock.yaml                       # Lock file for pnpm packages
 
+  ```
 
 <h2 align="center">Preparation and Running Code</h2>
 
