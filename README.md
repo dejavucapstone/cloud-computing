@@ -9,7 +9,7 @@ and mobile app integration.
 
 The aim of this project is to connect mobile apps with a database to enable interaction and perform processes such as CRUD operations. We utilize a microservices architecture for the backend, where the application is built as a collection of independent small services, each with specific responsibilities. All services are connected through a single API Gateway, which serves as the single entry point for requests from the Android application, managing communication and directing requests to the appropriate microservices.
 
-Here's the project scope :
+### Here's the project scope :
 
 - Creating Database : Created a database with 4 tables (login, user, history, and exercise).
 - API development : Utilizing Node.js and Express.js frameworks to develop REST APIs that connect Android applications to databases.
