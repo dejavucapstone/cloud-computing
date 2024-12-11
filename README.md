@@ -132,11 +132,11 @@ Don't forget to give the project a star! Thanks again!
 <h2 align="center">Top Contributors:</h2>
 
 <a href="https://github.com/Deku077-zaldy">
-  <img src="https://contrib.rocks/image?repo=Deku077-zaldy" alt="Deku077-zaldy" />
+  <img src="https://contrib.rocks/image?repo=Deku077-zaldy" alt="Deku077-zaldy" width="100" />
 </a>
 
 <a href="https://github.com/Galangbuana12">
-  <img src="https://contrib.rocks/image?repo=Galangbuana12" alt="Galangbuana12" />
+  <img src="https://contrib.rocks/image?repo=Galangbuana12" alt="Galangbuana12" width="100" />
 </a>
 
 
