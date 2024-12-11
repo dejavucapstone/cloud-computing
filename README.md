@@ -59,7 +59,6 @@ To get started, clone this repository and install the necessary dependencies:
    ```sh
    npm run dev
    ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -83,6 +82,5 @@ Don't forget to give the project a star! Thanks again!
   <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
 </a>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
