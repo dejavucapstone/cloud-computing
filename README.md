@@ -133,12 +133,13 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="center">
   <a href="https://github.com/Deku077-zaldy">
-    <img src="https://avatars.githubusercontent.com/u/149594740" alt="Deku077-zaldy" width="100" style="border-radius: 50%; border: 2px solid #000;" />
+    <img src="https://avatars.githubusercontent.com/u/149594740" alt="Deku077-zaldy" width="100" style="border-radius: 50%; border: 2px solid #000; display: inline-block;" />
   </a>
   <a href="https://github.com/Galangbuana12">
-    <img src="https://avatars.githubusercontent.com/u/157497041" alt="Galangbuana12" width="100" style="border-radius: 50%; border: 2px solid #000;" />
+    <img src="https://avatars.githubusercontent.com/u/157497041" alt="Galangbuana12" width="100" style="border-radius: 50%; border: 2px solid #000; display: inline-block;" />
   </a>
 </p>
+
 
 
 
