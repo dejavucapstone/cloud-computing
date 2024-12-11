@@ -24,7 +24,6 @@ This section lists the major frameworks/libraries used to bootstrap your project
 - [![Express.js][Express.js]][Express-url]
 - [![Supabase][Supabase]][Supabase-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 [Node.js]: https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white
 [Node-url]: https://nodejs.org/
@@ -40,7 +39,7 @@ This section lists the major frameworks/libraries used to bootstrap your project
   project structure coming soon
   ```
 
-### Preparation and Running Code
+<h2 align="center">Preparation and Running Code</h2>
 
 To get started, clone this repository and install the necessary dependencies:
 
@@ -63,9 +62,9 @@ To get started, clone this repository and install the necessary dependencies:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- CONTRIBUTING -->
 
-## Contributing
+
+<h2 align="center">Contributing</h2>
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -78,7 +77,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-### Top contributors:
+<h2 align="center">Top contributors:</h2>
 
 <a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
