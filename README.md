@@ -5,13 +5,15 @@
 This repository contains resources for a Cloud Computing project focused on implementing Node.js with the Express.js framework for backend development 
 and mobile app integration.
 
-Here's why:
+<h2 align="center">Project Overview</h2>
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
+The aim of this project is to connect mobile apps with a database to enable interaction and perform processes such as CRUD operations. We utilize a microservices architecture for the backend, where the application is built as a collection of independent small services, each with specific responsibilities. All services are connected through a single API Gateway, which serves as the single entry point for requests from the Android application, managing communication and directing requests to the appropriate microservices.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people who have contributed to expanding this template!
+Here's the project scope :
+
+- Creating Database : Created a database with 4 tables (login, user, history, and exercise).
+- API development : Utilizing Node.js and Express.js frameworks to develop REST APIs that connect Android applications to databases.
+- Microservices Architecture: Implemented a microservices architecture for better scalability and maintainability, with each service handling specific functions.
 
 Use the `BLANK_README.md` to get started.
 
@@ -43,7 +45,7 @@ This section lists the major frameworks/libraries used to bootstrap your project
 
 To get started, clone this repository and install the necessary dependencies:
 
-1. Clone the repo
+1. Clone the repository
    ```sh
    git clone https://github.com/dejavucapstone/cloud-computing.git
    ```
