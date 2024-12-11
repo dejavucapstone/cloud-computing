@@ -18,7 +18,7 @@ Here's the project scope :
 
 ### Built With
 
-This section lists the major frameworks/libraries used to bootstrap your project:
+There's several components that we use to build this repository :
 
 - [![Node.js][Node.js]][Node-url]
 - [![Express.js][Express.js]][Express-url]
