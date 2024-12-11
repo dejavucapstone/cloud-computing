@@ -21,8 +21,9 @@ Here's the project scope :
 This section lists the major frameworks/libraries used to bootstrap your project:
 
 - [![Node.js][Node.js]][Node-url]
-- <span style="background-color: yellow; padding: 2px 4px; border-radius: 3px;">EX</span>press.js
+- [![Express.js][Express.js]][Express-url]
 - [![Supabase][Supabase]][Supabase-url]
+
 
 [Node.js]: https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white
 [Node-url]: https://nodejs.org/
