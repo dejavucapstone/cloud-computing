@@ -129,11 +129,16 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<h2 align="center">Top contributors:</h2>
+<h2 align="center">Top Contributors:</h2>
 
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
+<a href="https://github.com/Deku077-zaldy">
+  <img src="https://contrib.rocks/image?repo=Deku077-zaldy" alt="Deku077-zaldy" />
 </a>
+
+<a href="https://github.com/Galangbuana12">
+  <img src="https://contrib.rocks/image?repo=Galangbuana12" alt="Galangbuana12" />
+</a>
+
 
 
 
