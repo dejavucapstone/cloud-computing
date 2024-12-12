@@ -55,19 +55,32 @@ cloud-computing
 │   │   ├── middleware/                  # Middleware for authentication
 │   │   │   └── authMiddleware.js        
 │   │   └── routes/                      # Routes for authentication
+<<<<<<< HEAD
 │   │       └── authRoutes.js                  
 │   │
+=======
+│   │       └── authRoutes.js            
+│   ├── docs/                            # Documentation services
+│   │   ├── controllers/                 # Controllers for documentation
+│   │   │   └── docsControllers.js       
+│   │   └── routes/                      # Routes for documentation
+│   │       └── docsRoutes.js            
+>>>>>>> 9bc8425393c2cf7e5f54490a800669dde9634fa5
 │   ├── exercise/                        # Exercise services
 │   │   ├── controllers/                 # Controllers for exercises
 │   │   │   └── exerciseControllers.js    
 │   │   └── routes/                      # Routes for exercises
 │   │       └── exerciseRoutes.js        
+<<<<<<< HEAD
 │   │
+=======
+>>>>>>> 9bc8425393c2cf7e5f54490a800669dde9634fa5
 │   ├── history/                         # History services
 │   │   ├── controllers/                 # Controllers for history
 │   │   │   └── historyControllers.js     
 │   │   └── routes/                      # Routes for history
 │   │       └── historyRoutes.js         
+<<<<<<< HEAD
 │   │
 │   ├── plan/                            # Plan services
 │   │   ├── controllers/                 # Controllers for Plan
@@ -80,6 +93,13 @@ cloud-computing
 │       │   └── userControllers.js       
 │       └── routes/                      # Routes for users
 │           └── userRoutes.js            
+=======
+│   ├── user/                            # User services
+│   │   ├── controllers/                 # Controllers for users
+│   │   │   └── userControllers.js       
+│   │   └── routes/                      # Routes for users
+│   │       └── userRoutes.js            
+>>>>>>> 9bc8425393c2cf7e5f54490a800669dde9634fa5
 │
 ├── utils/
 │   ├── createResponse.js                # Utility for creating responses
@@ -87,8 +107,13 @@ cloud-computing
 │   └── hashPassword.js                  # Utility for hashing passwords
 │
 ├── README.md                            # Project documentation
+<<<<<<< HEAD
 ├── .env                                 # Environment variables
 ├── Gymer.postman_collection.json        # API documentation in JSON format
+=======
+├── .env                                  # Environment variables
+├── Documentation API.json               # API documentation in JSON format
+>>>>>>> 9bc8425393c2cf7e5f54490a800669dde9634fa5
 ├── index.js                             # Main entry point of the application
 ├── package-lock.json                    # Lock file for npm packages
 ├── package.json                         # Project metadata and dependencies
