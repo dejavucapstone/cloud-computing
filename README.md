@@ -55,13 +55,7 @@ cloud-computing
 │   │   ├── middleware/                  # Middleware for authentication
 │   │   │   └── authMiddleware.js        
 │   │   └── routes/                      # Routes for authentication
-│   │       └── authRoutes.js            
-│   │
-│   ├── docs/                            # Documentation services
-│   │   ├── controllers/                 # Controllers for documentation
-│   │   │   └── docsControllers.js       
-│   │   └── routes/                      # Routes for documentation
-│   │       └── docsRoutes.js            
+│   │       └── authRoutes.js                  
 │   │
 │   ├── exercise/                        # Exercise services
 │   │   ├── controllers/                 # Controllers for exercises
@@ -93,7 +87,7 @@ cloud-computing
 │   └── hashPassword.js                  # Utility for hashing passwords
 │
 ├── README.md                            # Project documentation
-├── .env                                  # Environment variables
+├── .env                                 # Environment variables
 ├── Gymer.postman_collection.json        # API documentation in JSON format
 ├── index.js                             # Main entry point of the application
 ├── package-lock.json                    # Lock file for npm packages
