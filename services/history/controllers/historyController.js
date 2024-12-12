@@ -51,8 +51,6 @@ export async function createHistory(req, res) {
 }
 
 export async function getHistory(req, res) {
-    const { id } = req.params;
-
     try {
         const { data, error } = await db.from('history').select('*');
 
@@ -72,6 +70,9 @@ export async function getHistoryById(req, res) {
     const { id } = req.params;
 
     try {
+        if (!id ) {
+            return res.status(400).json({ message: 'ID are required.' });
+        }
         const { data, error } = await db
             .from('history')
             .select('*')
@@ -95,6 +96,9 @@ export async function updateHistory(req, res) {
     const { detil_history } = req.body;
 
     try {
+        if (!detil_history ) {
+            return res.status(400).json({ message: 'detil_history fields are required.' });
+        }
         const { data, error } = await db
             .from('history')
             .update({ detil_history })
@@ -122,6 +126,9 @@ export async function deleteHistory(req, res) {
     const { id } = req.params;
 
     try {
+        if (!id ) {
+            return res.status(400).json({ message: 'ID are required.' });
+        }
         const { data, error } = await db
             .from('history')
             .delete()

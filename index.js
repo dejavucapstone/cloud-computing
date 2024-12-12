@@ -5,11 +5,11 @@ import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
 dotenv.config()
 
-import docsRoutes from './services/docs/routes/docsRoutes.js';
 import authRoutes from './services/auth/routes/authRoutes.js';
 import userRoutes from './services/user/routes/userRoutes.js';
 import historyRoutes from './services/history/routes/historyRoutes.js';
 import exerciseRoutes from './services/exercise/routes/exerciseRoutes.js';
+import planRoutes from './services/plan/routes/planRoutes.js';
 
 const swaggerDocument = YAML.load('./docs/cleaned-api-docs.yaml');
 const app = express();
@@ -23,6 +23,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/history', historyRoutes);
 app.use('/api/exercise', exerciseRoutes);
+app.use('/api/plan', planRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

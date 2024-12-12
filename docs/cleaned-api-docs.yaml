@@ -246,8 +246,158 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResetPassResp'
+  /plan:
+    post:
+      tags:
+      - plan
+      summary: Create Plan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqBodyCreatePlan'
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePlanResp'
+    get:
+      tags:
+      - plan
+      summary: Create Plan
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePlanResp'
+  /plan/{id_jadwal}:
+    put:
+      tags:
+      - plan
+      summary: Find history by ID
+      parameters:
+      - name: id_jadwal
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int8
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqBodyUpdatePlan'
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePlanResp'
+    delete:
+      tags:
+      - plan
+      summary: Find history by ID
+      parameters:
+      - name: id_jadwal
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int8
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletePlanResp'
+  /user:
+    get:
+      tags:
+      - user
+      summary: Find all users
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUsers'
+  /user/{user_id}:
+    get:
+      tags:
+        - user
+      summary: Find user by ID
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int8
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUser'
+    put:
+      tags:
+        - user
+      summary: Find user by ID
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int8
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReqBodyUpdateUser'
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUser'
+    delete:
+      tags:
+        - user
+      summary: Find user by ID
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int8
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteUserResp'
 components:
   schemas:
+    GetUsers:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - $ref: '#/components/schemas/DataUsers'
+    GetUser:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - $ref: '#/components/schemas/DataUser'
     GetExercises:
       allOf:
       - $ref: '#/components/schemas/BaseResponse'
@@ -280,6 +430,18 @@ components:
       allOf:
       - $ref: '#/components/schemas/BaseResponse'
       - $ref: '#/components/schemas/ResetPassMessage'
+    DeleteUserResp:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - $ref: '#/components/schemas/DeleteUserMessage'
+    CreatePlanResp:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - $ref: '#/components/schemas/CreatePlanData'
+    DeletePlanResp:
+      allOf:
+      - $ref: '#/components/schemas/BaseResponse'
+      - $ref: '#/components/schemas/DeletePlanData'
     ReqBodyRegister:
       allOf:
       - $ref: '#/components/schemas/ReqBodyLogin'
@@ -315,6 +477,44 @@ components:
             bagian_tubuh: null
             gambar: https://storage.googleapis.com/exercise-image/exercise-gif/chest%20fly%20machine/lever%20seated%20fly.gif
             nama_exercise: lever seated fly
+    DataUsers:
+      type: object
+      properties:
+        data:
+          type: array
+          items: {}
+          example:
+          - id_user: 30
+            created_at: "2024-12-08T13:27:22.096117+00:00"
+            gender: "P"
+            berat_badan: 12.1
+            tinggi_badan: 13.3
+            email: "idessert90@gmail.com"
+            phone_number: "18201281"
+            name: "asd"
+          - id_user: 31
+            created_at: "2024-12-09T10:07:05.916156+00:00"
+            gender: "L"
+            berat_badan: 12.1
+            tinggi_badan: 13.3
+            email: "dickyzaldyharyanto@gmail.com"
+            phone_number: "18201281"
+            name: "dicky"
+    DataUser:
+      type: object
+      properties:
+        data:
+          type: array
+          items: {}
+          example:
+          - id_user: 30
+            created_at: "2024-12-08T13:27:22.096117+00:00"
+            gender: "P"
+            berat_badan: 12.1
+            tinggi_badan: 13.3
+            email: "idessert90@gmail.com"
+            phone_number: "18201281"
+            name: "asd"
     DataExercise:
       type: object
       properties:
@@ -327,6 +527,47 @@ components:
             bagian_tubuh: back
             gambar: https://storage.googleapis.com/exercise-image/exercise-gif/dumbell/back/dumbbell%20row%20on%20incline%20bench.gif
             nama_exercise: dumbbell row on incline bench
+    CreatePlanData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id_jadwal:
+              type: integer
+              example: 3
+            created_at:
+              type: integer
+              example: 2024-12-12T17:58:17.70032+00:00
+            id_user:
+              type: integer
+              example: 30
+            id_exercise:
+              type: integer
+              example: 24
+            tanggal:
+              type: string
+              format: date
+              example: 2021-12-23
+            repetisi:
+              type: integer
+              example: 1
+    DeletePlanData:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            deletedPlan:
+              type: array
+              items: {}
+              example: 
+                id_jadwal: 3
+                created_at: 2024-12-12T17:58:17.70032+00:00
+                id_user: 30
+                id_exercise: 24
+                tanggal: 2021-12-23
+                repetisi: 1
     DataHistory:
       type: object
       properties:
@@ -440,10 +681,25 @@ components:
       properties:
         email:
           type: string
-          example: john@email.com
+          example: 'john@email.com'
         password:
           type: string
           example: '12345'
+    ReqBodyUpdateUser:
+      type: object
+      properties:
+        gender:
+          type: string
+          example: 'L'
+        berat_badan:
+          type: integer
+          example: 12.1
+        tinggi_badan:
+          type: integer
+          example: 13.3
+        name:
+          type: string
+          example: 'qwe'
     ReqBodyForgotPass:
       type: object
       properties:
@@ -462,6 +718,35 @@ components:
         newPassword:
           type: string
           example: iamsohandsome
+    ReqBodyCreatePlan:
+      type: object
+      properties:
+        id_user:
+          type: integer
+          example: 30
+        id_exercise:
+          type: integer
+          example: 24
+        tanggal:
+          type: string
+          format: date
+          example: 2021-12-23
+        repetisi:
+          type: integer
+          example: 1
+    ReqBodyUpdatePlan:
+      type: object
+      properties:
+        id_exercise:
+          type: integer
+          example: 24
+        tanggal:
+          type: string
+          format: date
+          example: 2021-12-23
+        repetisi:
+          type: integer
+          example: 1
     TokenLogin:
       type: object
       properties:
@@ -502,6 +787,15 @@ components:
         message:
           type: string
           example: Password reset successful
+        data:
+          type: string
+          example: null
+    DeleteUserMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          example: User deleted successfully
         data:
           type: string
           example: null

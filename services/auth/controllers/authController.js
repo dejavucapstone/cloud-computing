@@ -11,6 +11,9 @@ export async function login(req, res) {
     const { email, password } = req.body;
 
     try {
+        if (!email || !password ) {
+            return res.status(400).json({ message: 'All fields are required.' });
+        }
         const { data: user, error } = await db
             .from('login')
             .select('*')
@@ -64,7 +67,7 @@ export async function register(req, res) {
             .single();
 
         if (existingLoginUser) {
-            return createResponse(res, 400, false, 'Username is already taken.');
+            return createResponse(res, 400, false, 'Email is already taken.');
         }
 
         const { data: existingUser } = await db
@@ -74,7 +77,7 @@ export async function register(req, res) {
             .single();
 
         if (existingUser) {
-            return createResponse(res, 400, false, 'Email is already registered.');
+            return createResponse(res, 400, false, 'Username is already registered.');
         }
 
         const { hash } = hashingPassword(password);
@@ -110,6 +113,9 @@ export async function forgotPassword(req, res) {
     const { email } = req.body;
 
     try {
+        if (!email ) {
+            return res.status(400).json({ message: 'Email fields are required.' });
+        }
         const { data: user, error: userError } = await db
             .from('user')
             .select('*')
@@ -145,6 +151,9 @@ export async function resetPassword(req, res) {
     const { email, resetCode, newPassword } = req.body;
 
     try {
+        if (!email || !resetCode || !newPassword ) {
+            return res.status(400).json({ message: 'All fields are required.' });
+        }
         const { data, error } = await db
             .from('login')
             .select('reset_code, reset_code_expired')
