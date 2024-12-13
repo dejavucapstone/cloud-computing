@@ -134,7 +134,10 @@ Don't forget to give the project a star! Thanks again!
 
 <h2 align="center">Base URL Cloud Run</h2>
 
-`https://gymner3-177979017941.asia-southeast2.run.app`
+4. running the script
+   ```sh
+   https://gymner3-177979017941.asia-southeast2.run.app
+   ```
 
 <h2 align="center">Top Contributors:</h2>
 
