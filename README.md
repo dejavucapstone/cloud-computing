@@ -11,7 +11,7 @@ The aim of this project is to connect mobile apps with a database to enable inte
 
 ### Here's the project scope :
 
-- Creating Database : Created a database with 4 tables (login, user, history, and exercise).
+- Creating Database : Created a database with 4 tables (login, user, history, Plan, and exercise).
 - API development : Utilizing Node.js and Express.js frameworks to develop REST APIs that connect Android applications to databases.
 - Microservices Architecture: Implemented a microservices architecture for better scalability and maintainability, with each service handling specific functions.
 
