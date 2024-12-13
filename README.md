@@ -133,7 +133,7 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 <h2 align="center">Base URL Cloud Run</h2>
-   ```sh
+   ```
    https://gymner3-177979017941.asia-southeast2.run.app
    ```
 
